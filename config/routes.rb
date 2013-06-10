@@ -1,4 +1,5 @@
 StudentRecord::Application.routes.draw do
+  root :to => "students#menu"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

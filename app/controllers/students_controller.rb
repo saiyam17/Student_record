@@ -2,7 +2,10 @@ class StudentsController < ApplicationController
 	layout 'admin'
 	def index
 		list
-		render('list')
+		render('menu')
+		
+	end
+	def menu
 		
 	end
 	def list
@@ -10,7 +13,7 @@ class StudentsController < ApplicationController
 		
 	end
 	def show
-		@stud=Student.find(params[:id])
+		@stud=Students.find(params[:id])
 	end
 	def new
 		flash[:notice]=""
@@ -27,16 +30,14 @@ class StudentsController < ApplicationController
 	end
 	def edit
 			@stud=Students.find(params[:id])
-			@stud_count=Students.count
 		
 	end
 	def update
 		@stud=Students.find(params[:id])
-		if @stud.update_attributes(params[:stud])
-			flash[:notice]="Subject updated."
+		if @stud.update_attributes(params[:student])
+			flash[:notice]="Student updated."
 			redirect_to(:action=>'show',:id=>@stud.id)
 		else
-			@stud_count=Students.count+1
 			render('edit')
 		end
 		
