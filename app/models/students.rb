@@ -1,3 +1,4 @@
+require 'digest/sha1'
 class Students < ActiveRecord::Base
   attr_accessible :name, :username, :password, :std, :section, :email_id, :mobile_number
 EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
@@ -11,5 +12,7 @@ EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   validates :email_id, :presence => true, :length => { :maximum => 40 }, 
     :format => EMAIL_REGEX, :confirmation => true
     validates :mobile_number, :presence => true, :length => { :is =>10}
+
+    
 
 end

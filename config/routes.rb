@@ -1,5 +1,11 @@
 StudentRecord::Application.routes.draw do
-  root :to => "students#menu"
+  devise_for :users
+  root to: "user#menu"
+  
+  #devise_for :admins
+  #resources :users
+  #root :to => "students#menu"
+  #match 'admin', :to => 'access#menu '
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

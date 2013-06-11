@@ -1,9 +1,9 @@
 class StudentsController < ApplicationController
 	layout 'admin'
+	
 	def index
 		list
 		render('menu')
-		
 	end
 	def menu
 		
@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
 		@stud=Students.new
 	end
 	def create
-		@stud=Students.new(params[:student])
+		@stud=Students.new(params[:stud])
 		if @stud.save
 			flash[:notice]="Student record created."
 		redirect_to(:action=>'list')
@@ -29,12 +29,12 @@ class StudentsController < ApplicationController
 	end
 	end
 	def edit
-			@stud=Students.find(params[:id])
+		@stud=Students.find(params[:id])
 		
 	end
 	def update
 		@stud=Students.find(params[:id])
-		if @stud.update_attributes(params[:student])
+		if @stud.update_attributes(params[:stud])
 			flash[:notice]="Student updated."
 			redirect_to(:action=>'show',:id=>@stud.id)
 		else
@@ -53,4 +53,5 @@ class StudentsController < ApplicationController
 		redirect_to(:action=>'list')
 		
 	end
+
 end

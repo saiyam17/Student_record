@@ -11,6 +11,7 @@
   <body>
     <div id="header">
       <h1>Student Database</h1>
+
     </div>
     <div id="main">
       <% if !flash[:notice].blank? %>
@@ -19,6 +20,10 @@
       </div>
       <% end %>
       <div id="content">
+        <div align="right">
+          <%= link_to("User Profile", {:controller=>'user',:action => 'show',:id=>current_user.id}, :class => 'action profile') %>
+          <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+        </div>
         <%= yield %>
       </div>
     </div>

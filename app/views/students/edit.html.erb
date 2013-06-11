@@ -4,7 +4,7 @@
 <div class="student edit">
   <h2>Update Student</h2>
 
-  <%= form_for(:Student, :url => {:action => 'update', :id => @stud.id})  do |f|-%>
+  <%= form_for(:stud, :url => {:action => 'update', :id => @stud.id})  do |f|-%>
     <%= render(:partial => "form", :locals => {:f=>f}) %>
     <div class="form-buttons">
       <%= submit_tag("Update Student") %>

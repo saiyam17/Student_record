@@ -1,0 +1,26 @@
+<%= link_to("<< Back to menu", {:controller=>'students', :action => 'menu'}, :class => 'back-link') %>
+<div class="User show">
+  <h2 align="center">User Details</h2>
+
+  <table summary="Student detail view">
+    <tr>
+      <th>Email</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>Password</th>
+      <td><%= @user.password %></td>
+    </tr>
+    <tr>
+      <th>Encrypted Password</th>
+      <td><%= @user.encrypted_password %></td>
+    </tr>
+    <tr>
+      <th>Last Sign In</th>
+      <td><%= @user.last_sign_in_at%></td>
+    </tr>
+    
+  </table>
+  
+</div>
+  
